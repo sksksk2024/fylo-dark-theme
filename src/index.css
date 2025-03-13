@@ -1,68 +1,162 @@
+@import 'tailwindcss';
+
+@config '../tailwind.config.ts';
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+img {
+  /* max-width: 100%; */
+  user-select: none;
+}
+
+/* Variables */
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  /* Font Size */
+  --font-size-1-5xs: 0.1rem;
+  --font-size-2xs: 0.5rem;
+  --font-size-xs: 0.75rem; /* Tailwind default */
+  --font-size-sm: 0.875rem; /* Tailwind default */
+  --font-size-md: 1rem;
+  --font-size-md-1: 1.1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+  --font-size-2-2xl: 2.2rem;
+  --font-size-2-4xl: 2.4rem;
+  --font-size-3xl: 3rem;
+  --font-size-4xl: 4rem;
+  --font-size-4-5xl: 4.5rem;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* Colors */
+  --dark-blue-email: hsl(
+    217,
+    28%,
+    15%
+  ); /*(intro and email sign up background)*/
+  --dark-blue-main: hsl(218, 28%, 13%); /*(main background)*/
+  --dark-blue-footer: hsl(216, 53%, 9%); /*(footer background)*/
+  --dark-blue-testimonials: hsl(219, 30%, 18%); /*(testimonials background)*/
+  --cyan: hsl(176, 68%, 64%); /*(inside call-to-action gradient)*/
+  --blue: hsl(198, 60%, 50%); /*(inside call-to-action gradient)*/
+  --light-red: hsl(0, 100%, 63%); /*(error)*/
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
+/* Styles */
+html,
 body {
+  min-height: 100dvh;
+  width: 100dvw;
+  overflow-x: clip;
+  overflow-y: scroll;
+}
+
+#link-shortener {
+  background-image: url('./images/bg-boost-mobile.svg');
+  background-color: var(--dark-violet);
+  background-repeat: no-repeat;
+  background-position: 90%;
+  background-size: 100% 50dvh;
+}
+
+@media (min-width: 48em) {
+  #link-shortener {
+    background-size: 100dvw 50dvh;
+    background-image: url('./images/bg-shorten-desktop.svg');
+  }
+}
+
+@media (min-width: 64em) {
+  #link-shortener {
+    background-size: 100dvw 35dvh;
+    background-image: url('./images/bg-shorten-desktop.svg');
+  }
+}
+
+#link-shortener-today {
+  background-image: url('./images/bg-boost-mobile.svg');
+  background-color: var(--dark-violet);
+  background-repeat: no-repeat;
+  background-position: 100%;
+  background-size: 80% 60dvh;
+}
+
+@media (min-width: 32em) {
+  #link-shortener-today {
+    background-size: 80% 50dvh;
+  }
+}
+
+@media (min-width: 48em) {
+  #link-shortener-today {
+    background-size: 100dvw 50dvh;
+    background-image: url('./images/bg-shorten-desktop.svg');
+  }
+}
+
+/* Loader */
+.container {
+  height: 5vh;
   margin: 0;
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.loader {
+  width: 1.25rem;
+  height: 1.25rem;
+  position: relative;
+  animation: spin 2s linear infinite;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.loader::before,
+.loader::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0.625rem;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: 50%;
+  background: #3498db;
+  animation: bounce 2s infinite ease-in-out;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+.loader::after {
+  left: -0.625rem;
+  background: #e74c3c;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
   }
-  a:hover {
-    color: #747bff;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
   }
-  button {
-    background-color: #f9f9f9;
+
+  50% {
+    transform: translateY(-1.25rem);
   }
 }
