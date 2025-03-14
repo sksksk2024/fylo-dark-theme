@@ -1,7 +1,12 @@
+import Header from './components/Header';
+import Main from './components/Main';
+
 function App() {
   return (
     <>
-      <h1 className="font-raleway underline m-64M">HII485y29y</h1>
+      <Header />
+
+      <Main />
     </>
   );
 }
