@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { motion, Variants } from 'framer-motion';
 import work from '../images/illustration-intro.png';
 import anywhere from '../images/icon-access-anywhere.svg';
@@ -22,6 +23,41 @@ export default function Main() {
       opacity: 1,
       transition: { duration: 1, ease: 'easeInOut' },
     },
+  };
+
+  const [email, setEmail] = useState('');
+
+  // Form Errors(when email and github username are not correctly typed)
+  const [formErrors, setFormErrors] = useState({
+    email: '',
+  });
+
+  // Regular Expressions(regex)
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    let hasErrors = false;
+    let errors: { email: string } = { email: '' };
+
+    // Email Validation
+    if (!emailRegex.test(email)) {
+      errors.email = 'Please enter a valid email address. Nice try though 😏';
+      hasErrors = true;
+    }
+
+    // If there are errors, set them and prevent form submission
+    if (hasErrors) {
+      setFormErrors(errors);
+      return;
+    }
+
+    // Reset form errors if everything is fine
+    setFormErrors({ email: '' });
+
+    // Handle form submission logic
+    console.log('Form submitted with:', { email });
   };
 
   return (
@@ -209,14 +245,36 @@ export default function Main() {
         <h2 className="text-xl text-start font-bold md:text-2xl">
           Get early access today
         </h2>
-        <p>
+        <p className="max-w-container-800">
           It only takes a minute to sign up and our free starter tier is
           extremely generous. If you have any questions, our support team would
           be happy to help you.
         </p>
         {/* INPUT */}
-        <div className="flex flex-col justify-center items-center lg:flex-row"></div>
-        button Get Started For Free
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col justify-center items-center gap-4 lg:flex-row w-full"
+        >
+          <div className="flex flex-col justify-center items-center gap-4 w-2/3">
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="email@example.com"
+              className="bg-white px-32P py-16P rounded-full w-full cursor-pointer peer grow input-md border-neutral-500 focus:invalid:border-light-red invalid:text-light-red cursor-pointer hover:bg-neutral-700 outline-none border-none"
+              required
+            />
+            {formErrors.email && (
+              <p className="text-start text-light-red">{formErrors.email}</p>
+            )}
+          </div>
+          <button
+            type="submit"
+            className="text-center font-bold bg-cyan px-32P py-16P rounded-full w-full cursor-pointer hover:bg-cyan-300 lg:w-1/3"
+          >
+            Get Started For Free
+          </button>
+        </form>
       </section>
     </main>
   );
