@@ -49,7 +49,7 @@ export default function Header() {
 
   return (
     <motion.header
-      className="mx-auto flex flex-col justify-between items-center p-64P space-y-4 max-w-container-1200 xs:flex-row xs:space-y-0"
+      className="mx-auto flex flex-col justify-between items-start p-48P space-y-4 max-w-container-1200 xs:flex-row xs:items-center xs:p-64P xs:space-y-0"
       initial={{ opacity: 0, x: '50dvw' }}
       whileInView={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.5 }}

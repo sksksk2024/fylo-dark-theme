@@ -65,6 +65,7 @@ body {
   width: 100dvw;
   overflow-x: clip;
   overflow-y: scroll;
+  user-select: none;
 }
 
 #link-shortener {
