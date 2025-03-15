@@ -331,6 +331,7 @@ module.exports = {
         '128M': '8rem',
         '144M': '9rem',
         '160M': '10rem',
+        '176M': '11rem',
       },
       inset: {
         '16negI': '-1rem',

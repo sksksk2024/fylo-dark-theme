@@ -282,7 +282,7 @@ export default function Main() {
         <motion.img
           src={productive}
           className="w-full sm:w-3/4 lg:w-1/2"
-          alt="stay productive"
+          alt="stay-productive"
           variants={imgVariants}
           initial="hidden"
           whileInView="visible"
@@ -484,7 +484,7 @@ export default function Main() {
       </section>
 
       {/* EARLY ACCESS */}
-      <section className="relative flex flex-col justify-center items-center gap-10 text-center p-32P shadow-xl bg-dark-blue-email">
+      <section className="relative top-160I -mt-160M flex flex-col justify-center items-center gap-10 text-center p-32P shadow-xl bg-dark-blue-email">
         <h2 className="text-xl text-start font-bold md:text-2xl">
           Get early access today
         </h2>
