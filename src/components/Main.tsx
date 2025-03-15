@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Typewriter from './utils/Typewriter';
 import { motion, Variants } from 'framer-motion';
 import work from '../images/illustration-intro.png';
 import anywhere from '../images/icon-access-anywhere.svg';
@@ -22,6 +23,58 @@ export default function Main() {
       rotateY: -360,
       opacity: 1,
       transition: { duration: 1, ease: 'easeInOut' },
+    },
+  };
+
+  const buttonVariants: Variants = {
+    hidden: {
+      backgroundImage:
+        'linear-gradient(120deg, rgba(101, 226, 217, 1) 30%, rgb(159, 255, 202) 50%, rgba(101, 226, 217, 1) 70%)',
+      backgroundSize: '200% 100%',
+      backgroundPosition: '0% 50%',
+    },
+    visible: {
+      backgroundPosition: ['150%', '-50%'],
+      transition: {
+        duration: 1.5,
+        ease: 'easeInOut',
+      },
+    },
+  };
+
+  const linkVariants: Variants = {
+    hidden: {
+      scaleX: 0,
+      opacity: 0,
+    },
+    visible: {
+      scaleX: 1,
+      opacity: 1,
+    },
+  };
+
+  const linkVariantsReverse: Variants = {
+    hidden: {
+      scaleX: 1,
+      opacity: 1,
+    },
+    visible: {
+      scaleX: 0,
+      opacity: 0,
+    },
+  };
+
+  const divVariants: Variants = {
+    hidden: {
+      opacity: 0,
+      scale: 0,
+    },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+      },
     },
   };
 
@@ -70,8 +123,8 @@ export default function Main() {
           alt="illustration-intro"
           variants={imgVariants}
           initial="hidden"
-          animate="visible"
-          drag
+          whileInView="visible"
+          drag={true}
           dragConstraints={{ left: 0, top: 0, right: 0, bottom: 0 }}
           dragElastic={0.7}
         />
@@ -79,76 +132,163 @@ export default function Main() {
           All your files in one secure location, accessible anywhere.
         </h1>
 
-        <p>
-          Fylo stores all your most important files in one secure location.
+        <div className="relative w-full mb-32M 2xs:mb-16M xs:mb-0">
+          <p className="opacity-0 text-center">
+            Fylo has improved our team productivity by an order of magnitude.
+            Since making the switch our team has become a well-oiled
+            collaboration machine.
+          </p>
+          <Typewriter
+            className="absolute -top-32I left-0 m-32M text-center"
+            text="Fylo stores all your most important files in one secure location.
           Access them wherever you need, share and collaborate with friends
-          family, and co-workers.
-        </p>
+          family, and co-workers."
+          />
+        </div>
 
-        <button className="text-center font-bold bg-cyan px-32P py-16P rounded-full w-full cursor-pointer hover:bg-cyan-300 xs:w-1/2">
+        <motion.button
+          className="text-center font-bold bg-cyan px-32P py-16P rounded-full w-full cursor-pointer hover:bg-cyan-300 xs:w-1/2"
+          variants={buttonVariants}
+          initial="hidden"
+          whileInView="visible"
+        >
           Get Started
-        </button>
+        </motion.button>
       </section>
 
       {/* PERKS */}
       <section className="flex flex-col justify-center items-center gap-10 text-center">
         <div className="flex flex-col justify-center items-center gap-10 lg:flex-row lg:justify-around w-full">
           <div className="flex flex-col justify-center items-center gap-5 text-center max-w-container-300">
-            <img src={anywhere} alt="access you files, anywhere" />
+            <motion.img
+              src={anywhere}
+              alt="access you files, anywhere"
+              variants={imgVariants}
+              initial="hidden"
+              whileInView="visible"
+              drag={true}
+              dragConstraints={{ left: 0, top: 0, right: 0, bottom: 0 }}
+              dragElastic={0.7}
+            />
             <h2 className="text-white text-md font-bold md:text-lg">
               Access your files, anywhere
             </h2>
-            <p>
-              The ability to use a smartphone, tablet, or computer to access
-              your account means your files follow you everywhere.
-            </p>
+
+            <div className="relative w-full">
+              <p className="opacity-0 text-center">
+                The ability to use a smartphone, tablet, or computer to access
+                your account means your files follow you everywhere.
+              </p>
+              <Typewriter
+                className="absolute top-0 left-0 text-center"
+                text="The ability to use a smartphone, tablet, or computer to access
+              your account means your files follow you everywhere."
+              />
+            </div>
           </div>
 
           <div className="flex flex-col justify-center items-center gap-5 text-center max-w-container-300">
-            <img src={security} alt="Security you can trust" />
+            <motion.img
+              src={security}
+              alt="Security you can trust"
+              variants={imgVariants}
+              initial="hidden"
+              whileInView="visible"
+              drag={true}
+              dragConstraints={{ left: 0, top: 0, right: 0, bottom: 0 }}
+              dragElastic={0.7}
+            />
             <h2 className="text-white text-md font-bold md:text-lg">
               Security you can trust
             </h2>
-            <p>
-              2-factor authentication and user-controlled encryption are just a
+
+            <div className="relative w-full">
+              <p className="opacity-0 text-center">
+                The ability to use a smartphone, tablet, or computer to access
+                your account means your files follow you everywhere.
+              </p>
+              <Typewriter
+                className="absolute top-0 left-0 text-center"
+                text="2-factor authentication and user-controlled encryption are just a
               couple of the security features we allow to help secure your
-              files.
-            </p>
+              files."
+              />
+            </div>
           </div>
         </div>
 
         <div className="flex flex-col justify-center items-center gap-10 lg:flex-row lg:justify-around w-full">
           <div className="flex flex-col justify-center items-center gap-5 text-center max-w-container-300">
-            <img src={colab} alt="Real-time collaboration" />
+            <motion.img
+              src={colab}
+              alt="Real-time collaboration"
+              variants={imgVariants}
+              initial="hidden"
+              whileInView="visible"
+              drag={true}
+              dragConstraints={{ left: 0, top: 0, right: 0, bottom: 0 }}
+              dragElastic={0.7}
+            />
             <h2 className="text-white text-md font-bold md:text-lg">
               Real-time collaboration
             </h2>
-            <p>
-              Securely share files and folders with friends, family and
-              colleagues for live collaboration. No email attachments required.
-            </p>
+
+            <div className="relative w-full">
+              <p className="opacity-0 text-center">
+                The ability to use a smartphone, tablet, or computer to access
+                your account means your files follow you everywhere.
+              </p>
+              <Typewriter
+                className="absolute top-0 left-0 text-center"
+                text="Securely share files and folders with friends, family and
+              colleagues for live collaboration. No email attachments required."
+              />
+            </div>
           </div>
 
           <div className="flex flex-col justify-center items-center gap-5 text-center max-w-container-300">
-            <img src={store} alt="Store any type of file" />
+            <motion.img
+              src={store}
+              alt="Store any type of file"
+              variants={imgVariants}
+              initial="hidden"
+              whileInView="visible"
+              drag={true}
+              dragConstraints={{ left: 0, top: 0, right: 0, bottom: 0 }}
+              dragElastic={0.7}
+            />
             <h2 className="text-white text-md font-bold md:text-lg">
               Store any type of file
             </h2>
-            <p>
-              Whether you're sharing holidays photos or work documents, Fylo has
+
+            <div className="relative w-full">
+              <p className="opacity-0 text-center">
+                The ability to use a smartphone, tablet, or computer to access
+                your account means your files follow you everywhere.
+              </p>
+              <Typewriter
+                className="absolute top-0 left-0 text-center"
+                text="Whether you're sharing holidays photos or work documents, Fylo has
               you covered allowing for all file types to be securely stored and
-              shared.
-            </p>
+              shared."
+              />
+            </div>
           </div>
         </div>
       </section>
 
       {/* PRODUCTIVE */}
       <section className="flex flex-col justify-center items-center gap-10 text-center lg:flex-row">
-        <img
+        <motion.img
           src={productive}
           className="w-full sm:w-3/4 lg:w-1/2"
           alt="stay productive"
+          variants={imgVariants}
+          initial="hidden"
+          whileInView="visible"
+          drag
+          dragConstraints={{ left: 0, top: 0, right: 0, bottom: 0 }}
+          dragElastic={0.7}
         />
         <aside className="w-full flex flex-col justify-start items-start gap-4 sm:w-3/4 lg:w-1/2">
           <h2 className="text-xl text-start font-bold md:text-2xl">
@@ -165,40 +305,99 @@ export default function Main() {
             for live collaboration. No email attachments required.
           </p>
 
-          <a
+          <motion.a
             href="#"
-            className="flex gap-4 relative group text-white font-bold w-[198px]"
+            className="flex gap-4 relative group font-bold w-[198px]"
+            initial="hidden"
+            whileHover="visible"
           >
-            See how Fylo works
-            <img src={arrow} aria-hidden="true" alt="" />
+            <motion.span
+              className="relative top-0 text-white w-full"
+              variants={linkVariantsReverse}
+              //   initial="hidden"
+            >
+              See how Fylo works
+            </motion.span>
+            <motion.img
+              src={arrow}
+              aria-hidden="true"
+              alt=""
+              variants={imgVariants}
+              initial="hidden"
+              whileInView="visible"
+              drag={true}
+              dragConstraints={{ left: 0, top: 0, right: 0, bottom: 0 }}
+              dragElastic={0.7}
+            />
+            <motion.span
+              className="absolute -left-[21px] top-0 text-cyan-500 w-full"
+              variants={linkVariants}
+              //   initial="hidden"
+            >
+              See how Fylo works
+            </motion.span>
             {/* Animation from white to cyan when HOVERED */}
             <span className="absolute left-0 -bottom-4I w-full h-[2px] bg-white scale-x-0 duration-300 ease-in-out group-hover:scale-x-100"></span>
-          </a>
+          </motion.a>
         </aside>
       </section>
 
       {/* TESTIMONIALS */}
       <section className="relative flex flex-col justify-center items-center gap-10 text-center">
-        <img
+        <motion.img
           src={quotes}
           className="hidden absolute -top-48I left-0 z-0 lg:block lg:-top-32I lg:-left-16I"
           alt="quotes"
+          variants={imgVariants}
+          initial="hidden"
+          whileInView="visible"
+          drag
+          dragConstraints={{ left: 0, top: 0, right: 0, bottom: 0 }}
+          dragElastic={0.7}
         />
 
         <div className="relative flex flex-col justify-center items-center gap-10 z-10 lg:flex-row">
-          <img
+          <motion.img
             src={quotes}
             className="absolute -top-48I left-0 z-0 lg:hidden"
             alt="quotes"
+            variants={imgVariants}
+            initial="hidden"
+            whileInView="visible"
+            drag
+            dragConstraints={{ left: 0, top: 0, right: 0, bottom: 0 }}
+            dragElastic={0.7}
           />
-          <div className="bg-dark-blue-testimonials p-32P rounded-10BR max-w-container-400 space-y-5">
-            <p className="text-start">
+          <div className="relative bg-dark-blue-testimonials p-32P rounded-10BR max-w-container-400 space-y-5">
+            <p className=" opacity-0 text-start">
               Fylo has improved our team productivity by an order of magnitude.
               Since making the switch our team has become a well-oiled
               collaboration machine.
             </p>
+            <motion.div
+              className="absolute top-0 left-0 m-32M text-start"
+              variants={divVariants}
+              initial="hidden"
+              whileInView="visible"
+            >
+              <Typewriter
+                text="Fylo has improved our team productivity by an order of magnitude.
+      Since making the switch our team has become a well-oiled
+      collaboration machine."
+              />
+            </motion.div>
             <div className="flex gap-4 justify-start items-center">
-              <img src={pers1} className="rounded-full w-48W" alt="person 1" />
+              <motion.img
+                src={pers1}
+                className="rounded-full w-48W"
+                alt="person 1"
+                variants={imgVariants}
+                initial="hidden"
+                whileInView="visible"
+                drag
+                dragConstraints={{ left: 0, top: 0, right: 0, bottom: 0 }}
+                dragElastic={0.7}
+              />
               <div className="flex flex-col justify-start items-start">
                 <h3 className="text-start font-bold uppercase">Satish Patel</h3>
                 <p className="text-start">Founder & CEO, Huddle</p>
@@ -206,14 +405,36 @@ export default function Main() {
             </div>
           </div>
 
-          <div className="bg-dark-blue-testimonials p-32P rounded-10BR max-w-container-400 space-y-5">
-            <p className="text-start">
+          <div className="relative bg-dark-blue-testimonials p-32P rounded-10BR max-w-container-400 space-y-5">
+            <p className=" opacity-0 text-start">
               Fylo has improved our team productivity by an order of magnitude.
               Since making the switch our team has become a well-oiled
               collaboration machine.
             </p>
+            <motion.div
+              className="absolute top-0 left-0 m-32M text-start"
+              variants={divVariants}
+              initial="hidden"
+              whileInView="visible"
+            >
+              <Typewriter
+                text="Fylo has improved our team productivity by an order of magnitude.
+              Since making the switch our team has become a well-oiled
+              collaboration machine."
+              />
+            </motion.div>
             <div className="flex gap-4 justify-start items-center">
-              <img src={pers2} className="rounded-full w-48W" alt="person 2" />
+              <motion.img
+                src={pers2}
+                className="rounded-full w-48W"
+                alt="person 2"
+                variants={imgVariants}
+                initial="hidden"
+                whileInView="visible"
+                drag
+                dragConstraints={{ left: 0, top: 0, right: 0, bottom: 0 }}
+                dragElastic={0.7}
+              />
               <div className="flex flex-col justify-start items-start">
                 <h3 className="text-start font-bold uppercase">
                   Bruce McKenzie
@@ -223,14 +444,36 @@ export default function Main() {
             </div>
           </div>
 
-          <div className="bg-dark-blue-testimonials p-32P rounded-10BR max-w-container-400 space-y-5">
-            <p className="text-start">
+          <div className="relative bg-dark-blue-testimonials p-32P rounded-10BR max-w-container-400 space-y-5">
+            <p className=" opacity-0 text-start">
               Fylo has improved our team productivity by an order of magnitude.
               Since making the switch our team has become a well-oiled
               collaboration machine.
             </p>
+            <motion.div
+              className="absolute top-0 left-0 m-32M text-start"
+              variants={divVariants}
+              initial="hidden"
+              whileInView="visible"
+            >
+              <Typewriter
+                text="Fylo has improved our team productivity by an order of magnitude.
+              Since making the switch our team has become a well-oiled
+              collaboration machine."
+              />
+            </motion.div>
             <div className="flex gap-4 justify-start items-center">
-              <img src={pers3} className="rounded-full w-48W" alt="person 3" />
+              <motion.img
+                src={pers3}
+                className="rounded-full w-48W"
+                alt="person 3"
+                variants={imgVariants}
+                initial="hidden"
+                whileInView="visible"
+                drag
+                dragConstraints={{ left: 0, top: 0, right: 0, bottom: 0 }}
+                dragElastic={0.7}
+              />
               <div className="flex flex-col justify-start items-start">
                 <h3 className="text-start font-bold uppercase">Iva Boyd</h3>
                 <p className="text-start">Founder & CEO, Huddle</p>
@@ -241,39 +484,45 @@ export default function Main() {
       </section>
 
       {/* EARLY ACCESS */}
-      <section className="flex flex-col justify-center items-center gap-10 text-center p-32P shadow-xl bg-dark-blue-email">
+      <section className="relative flex flex-col justify-center items-center gap-10 text-center p-32P shadow-xl bg-dark-blue-email">
         <h2 className="text-xl text-start font-bold md:text-2xl">
           Get early access today
         </h2>
-        <p className="max-w-container-800">
-          It only takes a minute to sign up and our free starter tier is
+        <Typewriter
+          className="max-w-container-800"
+          text="It only takes a minute to sign up and our free starter tier is
           extremely generous. If you have any questions, our support team would
-          be happy to help you.
-        </p>
+          be happy to help you."
+        />
         {/* INPUT */}
         <form
           onSubmit={handleSubmit}
           className="flex flex-col justify-center items-center gap-4 lg:flex-row w-full"
         >
-          <div className="flex flex-col justify-center items-center gap-4 w-2/3">
+          <div className="flex flex-col justify-center items-center gap-4 w-full lg:w-2/3">
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="email@example.com"
-              className="bg-white px-32P py-16P rounded-full w-full cursor-pointer peer grow input-md border-neutral-500 focus:invalid:border-light-red invalid:text-light-red cursor-pointer hover:bg-neutral-700 outline-none border-none"
+              className="bg-white px-32P py-16P rounded-full w-full cursor-pointer peer grow input-md border-neutral-500 focus:invalid:border-light-red text-neutral-700 cursor-pointer hover:scale-[1.01] outline-none border-none"
               required
             />
             {formErrors.email && (
-              <p className="text-start text-light-red">{formErrors.email}</p>
+              <p className="absolute bottom-4I left-48I text-start text-light-red">
+                {formErrors.email}
+              </p>
             )}
           </div>
-          <button
+          <motion.button
             type="submit"
             className="text-center font-bold bg-cyan px-32P py-16P rounded-full w-full cursor-pointer hover:bg-cyan-300 lg:w-1/3"
+            variants={buttonVariants}
+            initial="hidden"
+            whileInView="visible"
           >
             Get Started For Free
-          </button>
+          </motion.button>
         </form>
       </section>
     </main>
