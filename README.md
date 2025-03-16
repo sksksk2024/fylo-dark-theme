@@ -1,54 +1,47 @@
-# React + TypeScript + Vite
+# Frontend Mentor - Shortly URL shortening API Challenge solution
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a solution to the [Shortly URL shortening API Challenge challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/url-shortening-api-landing-page-2ce3ob-G). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-Currently, two official plugins are available:
+## Table of contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+- [My process](#my-process)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
 
-## Expanding the ESLint configuration
+## Overview
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### The challenge
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Users should be able to:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- View the optimal layout for the site depending on their device's screen size
+- See hover states for all interactive elements on the page
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Screenshot
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+![./design](./design/desktop-preview.jpg)
+
+## My process
+
+### What I learned
+
+I’ve made significant progress working with my stack! I’ve gained a much deeper understanding of Vitest and have improved my overall use of the frontend stack.
+Vitest is still a bit challenging to grasp, but it becomes easier each time I write tests and practice consistently.
+
+### Continued development
+
+I aim to deepen my expertise in testing and enhance my proficiency in writing TypeScript code. Additionally, I plan to complete my frontend stack by gaining a solid understanding of Next.js and integrating it into my existing MERN stack with TypeScript, Vitest, and Framer Motion. From there, I intend to refine and further optimize my skills.
+
+### Useful resources
+
+| Resource Name                     | Description                                                                                | Link                                                        |
+| --------------------------------- | ------------------------------------------------------------------------------------------ | ----------------------------------------------------------- |
+| **Vitest Documentation**          | Official documentation for Vitest testing framework.                                       | [Vitest Docs](https://vitest.dev/)                          |
+| **TypeScript Documentation**      | Comprehensive guide on TypeScript language features and best practices.                    | [TypeScript Docs](https://www.typescriptlang.org/docs/)     |
+| **Tailwind CSS v4 Documentation** | Official documentation for Tailwind CSS version 4, including utilities and configurations. | [Tailwind CSS v4 Docs](https://v4.tailwindcss.com/docs)     |
+| **Framer Motion Documentation**   | Detailed documentation for the Framer Motion library for animations.                       | [Framer Motion Docs](https://www.framer.com/motion/)        |
+| **React Documentation**           | Official React documentation covering concepts, hooks, and advanced patterns.              | [React Docs](https://reactjs.org/docs/getting-started.html) |
