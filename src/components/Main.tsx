@@ -114,7 +114,10 @@ export default function Main() {
   };
 
   return (
-    <main className="mx-auto p-32P xs:p-64P max-w-container-1200 space-y-40">
+    <main
+      data-testid="main"
+      className="mx-auto p-32P xs:p-64P max-w-container-1200 space-y-40"
+    >
       {/* INTRO */}
       <section className="flex flex-col justify-center items-center gap-10 text-center">
         <motion.img

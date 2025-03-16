@@ -19,7 +19,10 @@ const menuItems: { links: string[] }[] = [
 
 export default function Footer() {
   return (
-    <footer className="w-100dvw mx-auto p-32P xs:p-64P space-y-10 bg-dark-blue-footer">
+    <footer
+      data-testid="footer"
+      className="w-100dvw mx-auto p-32P xs:p-64P space-y-10 bg-dark-blue-footer"
+    >
       <motion.img
         src={logo}
         className="w-3/4 px-32P max-w-container-300 mt-160M"
