@@ -42,6 +42,6 @@ I aim to deepen my expertise in testing and enhance my proficiency in writing Ty
 | --------------------------------- | ------------------------------------------------------------------------------------------ | ----------------------------------------------------------- |
 | **Vitest Documentation**          | Official documentation for Vitest testing framework.                                       | [Vitest Docs](https://vitest.dev/)                          |
 | **TypeScript Documentation**      | Comprehensive guide on TypeScript language features and best practices.                    | [TypeScript Docs](https://www.typescriptlang.org/docs/)     |
-| **Tailwind CSS v4 Documentation** | Official documentation for Tailwind CSS version 4, including utilities and configurations. | [Tailwind CSS v4 Docs](https://v4.tailwindcss.com/docs)     |
+| **Tailwind CSS v4 Documentation** | Official documentation for Tailwind CSS version 4, including utilities and configurations. | [Tailwind CSS v4 Docs](https://tailwindcss.com/)     |
 | **Framer Motion Documentation**   | Detailed documentation for the Framer Motion library for animations.                       | [Framer Motion Docs](https://www.framer.com/motion/)        |
 | **React Documentation**           | Official React documentation covering concepts, hooks, and advanced patterns.              | [React Docs](https://reactjs.org/docs/getting-started.html) |
