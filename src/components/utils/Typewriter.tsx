@@ -28,6 +28,7 @@ export default function Typewriter({
 
   return (
     <motion.p
+      data-testid="typewriter"
       className={className}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}

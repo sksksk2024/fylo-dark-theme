@@ -512,7 +512,10 @@ export default function Main() {
               required
             />
             {formErrors.email && (
-              <p className="absolute bottom-4I left-48I text-start text-light-red">
+              <p
+                data-testid="invalid-email"
+                className="absolute bottom-4I left-48I text-start text-light-red"
+              >
                 {formErrors.email}
               </p>
             )}
